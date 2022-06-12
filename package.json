@@ -20,8 +20,5 @@
   "bugs": {
     "url": "https://github.com/PRODEFIX/normalize-text/issues"
   },
-  "homepage": "https://github.com/PRODEFIX/normalize-text#readme",
-  "dependencies": {
-    "unidecode": "^0.1.8"
-  }
+  "homepage": "https://github.com/PRODEFIX/normalize-text#readme"
 }
