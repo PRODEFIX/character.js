@@ -1,9 +1,9 @@
-const characters = require("./special-characters.json");
+const specialChars = require("./special-characters.json");
 
 module.exports = {
     Normalize: (text, replaceAllChar) => {
         let final = "";
-        for (const char of [...text]) final += characters[char] ?? char;
+        for (const char of [...text]) final += specialChars[char] ?? char;
 
         return replaceAllChar ? final.replace(/[^a-zA-Z0-9 ]/g, "") : final;
     },
@@ -18,5 +18,16 @@ module.exports = {
             .map(a => /[a-z]/g.test(a) ? `:regional_indicator_${a}:` : (specialCodes[a] || a)).join("");
 
         return replaceAllChar ? final.replace(/[^a-zA-Z0-9 ]/g, "") : final;
+    },
+    Reverse: (text, reverseAll) => {
+        const chars = {
+            a: "ɐ", b: "q", c: "ɔ", d: "p", e: "ǝ", f: "ⅎ", g: "ƃ", h: "ɥ", i: "ᴉ", j: "ɾ", k: "ʞ", l: "ʅ", m: "ɯ",
+            n: "u", o: "o", p: "d", q: "b", r: "ɹ", s: "s", t: "ʇ", u: "n", v: "ʌ", w: "ʍ", x: "x", y: "ʎ", z: "z",
+            0: "0", 1: "⇂", 2: "↊", 3: "↋", 4: "ߤ", 5: "5", 6: "9", 7: "𝘓", 8: 8, 9: 6, "?": "¿", "!": "¡"
+        };
+
+        const final = text.normalize("NFD").toLowerCase().split("").map(a => chars[a] || a);
+
+        return (reverseAll ? final.reverse() : final).join("");
     },
 };
