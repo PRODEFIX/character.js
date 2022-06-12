@@ -1,17 +1,22 @@
 const characters = require("./special-characters.json");
 
-/**
- * @param {string} text
- * @param {boolean} replaceAllChar
- * @returns {string}
- * 
- * @example Normalize("🄽𝙊𝓡Ⓜ𝘼ℓⅈ𝓩E 🆒 😄"); // "NORMALIZE COOL 😄"
- * @example Normalize("🄽𝙊𝓡Ⓜ𝘼ℓⅈ𝓩E 🆒 😄", true); // "NORMALIZE COOL"
- */
+module.exports = {
+    Normalize: (text, replaceAllChar) => {
+        let final = "";
+        for (const char of [...text]) final += characters[char] ?? char;
 
-module.exports = (text, replaceAllChar) => {
-    let final = "";
-    for (const char of [...text]) final += characters[char] ?? char;
+        return replaceAllChar ? final.replace(/[^a-zA-Z0-9 ]/g, "") : final;
+    },
+    Emojify: (text, replaceAllChar) => {
+        const specialCodes = {
+            0: "0️⃣", 1: "1️⃣", 2: "2️⃣", 3: "3️⃣", 4: "4️⃣", 5: "5️⃣", 6: "6️⃣", 7: "7️⃣", 8: "8️⃣", 9: "9️⃣",
+            "#": "#️⃣", "*": "*️⃣", "?": "❔", "!": "❕", "+": "➕", "÷": "➗", "-": "➖", "×": "✖️", "<": "◀️", ">": "▶️", " ": "   ",
+            "$": "💵", "€": "💶", "¥": "💴", "£": "💷"
+        };
 
-    return replaceAllChar ? final.replace(/[^a-zA-Z0-9 ]/g, "") : final;
+        const final = text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().split("")
+            .map(a => /[a-z]/g.test(a) ? `:regional_indicator_${a}:` : (specialCodes[a] || a)).join("");
+
+        return replaceAllChar ? final.replace(/[^a-zA-Z0-9 ]/g, "") : final;
+    },
 };
