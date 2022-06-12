@@ -1,5 +1,5 @@
 {
-  "name": "text.js",
+  "name": "character.js",
   "version": "1.0.0",
   "description": "Change a text",
   "main": "index.js",
@@ -8,20 +8,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PRODEFIX/text.js.git"
+    "url": "git+https://github.com/PRODEFIX/character.js.git"
   },
   "keywords": [
     "normalize",
     "emojify",
+    "character",
     "text",
     "js",
-    "text.js"
+    "character.js"
   ],
   "author": "PRODEFIX",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/PRODEFIX/text.js/issues"
+    "url": "https://github.com/PRODEFIX/character.js/issues"
   },
-  "homepage": "https://github.com/PRODEFIX/text.js#readme",
-  "devDependencies": {}
+  "homepage": "https://github.com/PRODEFIX/character.js#readme"
 }
