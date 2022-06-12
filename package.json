@@ -8,19 +8,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PRODEFIX/text.git"
+    "url": "git+https://github.com/PRODEFIX/text.js.git"
   },
   "keywords": [
     "normalize",
     "emojify",
     "text",
-    "js"
+    "js",
+    "text.js"
   ],
   "author": "PRODEFIX",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/PRODEFIX/text/issues"
+    "url": "https://github.com/PRODEFIX/text.js/issues"
   },
-  "homepage": "https://github.com/PRODEFIX/text#readme",
+  "homepage": "https://github.com/PRODEFIX/text.js#readme",
   "devDependencies": {}
 }
