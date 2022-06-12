@@ -26,8 +26,8 @@ module.exports = {
             0: "0", 1: "⇂", 2: "↊", 3: "↋", 4: "ߤ", 5: "5", 6: "9", 7: "𝘓", 8: 8, 9: 6, "?": "¿", "!": "¡"
         };
 
-        const final = text.normalize("NFD").toLowerCase().split("").map(a => chars[a] || a);
+        const final = text.normalize("NFD").toLowerCase().split("");
 
-        return (reverseAll ? final.reverse() : final).join("");
+        return (reverseAll ? final.reverse() : final).map(a => chars[a] || a).join("");
     },
 };
