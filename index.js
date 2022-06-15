@@ -1,13 +1,20 @@
+const figlet = (require("util")).promisify(require("figlet"));
 const specialChars = require("./special-characters.json");
 
 module.exports = {
-    Normalize: (text, replaceAllChar) => {
+    normalize: (text, replaceAllChar) => {
+        if (!text || typeof text != "string" || !text.length) throw new Error("Please provide a valid string");
+        if (replaceAllChar && typeof replaceAllChar != "boolean") throw new Error("Please provide a valid boolean");
+
         let final = "";
         for (const char of [...text]) final += specialChars[char] ?? char;
 
         return replaceAllChar ? final.replace(/[^a-zA-Z0-9 ]/g, "") : final;
     },
-    Emojify: (text, replaceAllChar) => {
+    emojify: (text, replaceAllChar) => {
+        if (!text || typeof text != "string" || !text.length) throw new Error("Please provide a valid string");
+        if (replaceAllChar && typeof replaceAllChar != "boolean") throw new Error("Please provide a valid boolean");
+
         const specialCodes = {
             0: "0️⃣", 1: "1️⃣", 2: "2️⃣", 3: "3️⃣", 4: "4️⃣", 5: "5️⃣", 6: "6️⃣", 7: "7️⃣", 8: "8️⃣", 9: "9️⃣",
             "#": "#️⃣", "*": "*️⃣", "?": "❔", "!": "❕", "+": "➕", "÷": "➗", "-": "➖", "×": "✖️", "<": "◀️", ">": "▶️", " ": "   ",
@@ -19,7 +26,10 @@ module.exports = {
 
         return replaceAllChar ? final.replace(/[^a-zA-Z0-9 ]/g, "") : final;
     },
-    Reverse: (text, reverseAll) => {
+    reverse: (text, reverseAll, replaceAllChar) => {
+        if (!text || typeof text != "string" || !text.length) throw new Error("Please provide a valid string");
+        if (reverseAll && typeof reverseAll != "boolean") throw new Error("Please provide a valid boolean");
+
         const chars = {
             a: "ɐ", b: "q", c: "ɔ", d: "p", e: "ǝ", f: "ⅎ", g: "ƃ", h: "ɥ", i: "ᴉ", j: "ɾ", k: "ʞ", l: "ʅ", m: "ɯ",
             n: "u", o: "o", p: "d", q: "b", r: "ɹ", s: "s", t: "ʇ", u: "n", v: "ʌ", w: "ʍ", x: "x", y: "ʎ", z: "z",
@@ -28,6 +38,12 @@ module.exports = {
 
         const final = text.normalize("NFD").toLowerCase().split("");
 
-        return (reverseAll ? final.reverse() : final).map(a => chars[a] || a).join("");
+        return (reverseAll ? final.reverse() : final).map(a => chars[a] ? chars[a] : replaceAllChar ? "" : a).join("");
+    },
+    ascii: (text, noText) => {
+        if (!text || typeof text != "string" || !text.length) throw new Error("Please provide a valid string");
+        if (noText && typeof text != "string") throw new Error("Please provide a valid string");
+
+        return figlet(text) || figlet(noText || "Error");
     },
 };
