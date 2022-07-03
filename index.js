@@ -46,4 +46,19 @@ module.exports = {
 
         return figlet(text) || figlet(noText || "Error");
     },
+    startUpper: text => {
+        return text.split(" ").map(x => x.charAt(0).toUpperCase() + x.slice(1)).join(" ");
+    },
+    toggleCase: text => {
+        return text.split("").map(x => x.toLowerCase() == x ? x.toUpperCase() : x.toLowerCase()).join("")
+    },
+    wordCount: text => {
+        return text.split(" ").length;
+    },
+    sentenceCount: text => {
+        return text.replace(/([.?!])\s*(?=[A-Z])/g, "$1|").split("|").length;
+    },
+    emoCount: text => {
+        return text.match(/(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/g)?.length;
+    },
 };
