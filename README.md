@@ -14,6 +14,9 @@ character.normalize("🄽𝙊𝓡Ⓜ𝘼ℓⅈ𝓩E 🆒 😄", true); // "NORMA
 character.emojify("Emojify'"); // "🇪🇲🇴🇯🇮🇫🇾'"
 character.emojify("Emojify'", true); // "🇪🇲🇴🇯🇮🇫🇾"
 
+character.tinyText("Tiny text'"); // "ᵗᶦⁿʸ ᵗᵉˣᵗ'"
+character.tinyText("Tiny text'", true); // "ᵗᶦⁿʸ ᵗᵉˣᵗ"
+
 character.reverse("Reverse'"); // "ɹǝʌǝɹsǝ'"
 character.reverse("Reverse'", true); // "'ǝsɹǝʌǝɹ"
 character.reverse("Reverse'", false, true); // "ɹǝʌǝɹsǝ"
