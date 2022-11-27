@@ -1,12 +1,12 @@
-# character.js
+# CharacterJS
 ## Installation
 ```console
-$ npm install character.js
+$ npm install characterjs
 ```
 
 ## Usage
 ```js
-const character = require("character.js");
+const character = require("characterjs");
 
 character.normalize("🄽𝙊𝓡Ⓜ𝘼ℓⅈ𝓩E 🆒 😄"); // "NORMALIZE COOL 😄"
 character.normalize("🄽𝙊𝓡Ⓜ𝘼ℓⅈ𝓩E 🆒 😄", true); // "NORMALIZE COOL"

@@ -1,5 +1,5 @@
 {
-  "name": "@prodefix/character.js",
+  "name": "@prodefix/characterjs",
   "version": "1.0.13",
   "description": "Change a text",
   "main": "index.js",
@@ -7,26 +7,26 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-    "url": "git+https://github.com/PRODEFIX/character.js.git"
+    "url": "git+https://github.com/PRODEFIX/characterjs.git"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
   "keywords": [
     "normalize",
-    "emojify",
+    "character.js",
     "character",
     "text util",
     "text",
     "js",
-    "character.js"
+    "characterjs"
   ],
   "author": "PRODEFIX",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/PRODEFIX/character.js/issues"
+    "url": "https://github.com/PRODEFIX/characterjs/issues"
   },
-  "homepage": "https://github.com/PRODEFIX/character.js#readme",
+  "homepage": "https://github.com/PRODEFIX/characterjs#readme",
   "dependencies": {
     "figlet": "^1.5.2"
   }
