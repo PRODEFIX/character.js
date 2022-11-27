@@ -1,6 +1,6 @@
 {
   "name": "@prodefix/character.js",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Change a text",
   "main": "index.js",
   "scripts": {
