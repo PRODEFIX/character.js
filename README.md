@@ -34,5 +34,5 @@ character.startUpper("A text of test"); // A Text Of Test
 character.toggleCase("A TEXT of test"); // a text OF TEST
 character.wordCount("A text of test"); // 4
 character.sentenceCount("A text of test. A text of test"); // 2
-character.emoCount("A text of test 😀"); // 1
+character.emojiCount("A text of test 😀"); // 1
 ```
