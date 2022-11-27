@@ -10,7 +10,6 @@ module.exports = {
      */
     normalize: (text, replaceAllChar) => {
         if (!text || typeof text != "string" || !text.length) throw new Error("Please provide a valid string");
-        if (typeof replaceAllChar != "boolean") throw new Error("Please provide a valid boolean");
 
         let final = "";
         for (const char of [...text]) final += specialChars[char] ?? char;
@@ -25,7 +24,6 @@ module.exports = {
     */
     emojify: (text, replaceAllChar) => {
         if (!text || typeof text != "string" || !text.length) throw new Error("Please provide a valid string");
-        if (typeof replaceAllChar != "boolean") throw new Error("Please provide a valid boolean");
 
         const specialCodes = {
             0: "0️⃣", 1: "1️⃣", 2: "2️⃣", 3: "3️⃣", 4: "4️⃣", 5: "5️⃣", 6: "6️⃣", 7: "7️⃣", 8: "8️⃣", 9: "9️⃣",
@@ -46,7 +44,6 @@ module.exports = {
     */
     tinyText: (text, replaceAllChar) => {
         if (!text || typeof text != "string" || !text.length) throw new Error("Please provide a valid string");
-        if (typeof replaceAllChar != "boolean") throw new Error("Please provide a valid boolean");
 
         const tinyChars = {
             a: "ᵃ", b: "ᵇ", c: "ᶜ", d: "ᵈ", e: "ᵉ", f: "ᶠ", g: "ᵍ", h: "ʰ", i: "ᶦ", j: "ʲ", k: "ᵏ", l: "ˡ", m: "ᵐ",
@@ -65,8 +62,6 @@ module.exports = {
     */
     reverse: (text, reverseAll, replaceAllChar) => {
         if (!text || typeof text != "string" || !text.length) throw new Error("Please provide a valid string");
-        if (typeof reverseAll != "boolean") throw new Error("Please provide a valid boolean");
-        if (typeof replaceAllChar != "boolean") throw new Error("Please provide a valid boolean");
 
         const chars = {
             a: "ɐ", b: "q", c: "ɔ", d: "p", e: "ǝ", f: "ⅎ", g: "ƃ", h: "ɥ", i: "ᴉ", j: "ɾ", k: "ʞ", l: "ʅ", m: "ɯ",
@@ -135,9 +130,9 @@ module.exports = {
     * @param {string} text - Some text
     * @returns {number} The number of emojis in the text
     */
-    emoCount: text => {
+    emojiCount: text => {
         if (!text || typeof text != "string" || !text.length) throw new Error("Please provide a valid string");
 
         return text.match(/(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/g)?.length;
-    },
+    }
 };

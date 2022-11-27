@@ -1,14 +1,16 @@
 {
-  "name": "character.js",
-  "version": "1.0.9",
+  "name": "@prodefix/character.js",
+  "version": "1.0.12",
   "description": "Change a text",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-    "type": "git",
     "url": "git+https://github.com/PRODEFIX/character.js.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "keywords": [
     "normalize",
