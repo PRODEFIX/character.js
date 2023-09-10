@@ -5,7 +5,7 @@ module.exports = {
     /**
      * Normalize a text
      * @param {string} text - Some text
-     * @param {boolean} [replaceAllChar=false] - If you want to replace all unsupported characters
+     * @param {boolean} [replaceAllChar=false] - If set to true, replace all unsupported characters
      * @returns {string}
      */
     normalize: (text, replaceAllChar) => {
@@ -19,7 +19,7 @@ module.exports = {
     /**
     * Put a text in emojis
     * @param {string} text - Some text
-    * @param {boolean} [replaceAllChar=false] - If you want to replace all unsupported characters
+    * @param {boolean} [replaceAllChar=false] - If set to true, replace all unsupported characters
     * @returns {string}
     */
     emojify: (text, replaceAllChar) => {
@@ -39,7 +39,7 @@ module.exports = {
     /**
      * Put a text in small characters
     * @param {string} text - Some text
-    * @param {boolean} [replaceAllChar=false] - If you want to replace all unsupported characters
+    * @param {boolean} [replaceAllChar=false] - If set to true, replace all unsupported characters
     * @returns {string}
     */
     tinyText: (text, replaceAllChar) => {
@@ -56,8 +56,8 @@ module.exports = {
     /**
     * Reverse characters and the text
     * @param {string} text - Some text
-    * @param {boolean} [reverseAll=false] - If you want to reverse the text
-    * @param {boolean} [replaceAllChar=false] - If you want to replace all unsupported characters
+    * @param {boolean} [reverseAll=false] - If set to true, reverse the text
+    * @param {boolean} [replaceAllChar=false] - If set to true, replace all unsupported characters
     * @returns {string}
     */
     reverse: (text, reverseAll, replaceAllChar) => {
@@ -128,11 +128,11 @@ module.exports = {
     /**
     * Know the number of emojis in a text
     * @param {string} text - Some text
-    * @returns {number} The number of emojis in the text
+    * @return {number} The number of emojis in the text
     */
     emojiCount: text => {
         if (!text || typeof text != "string" || !text.length) throw new Error("Please provide a valid string");
 
-        return text.match(/(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/g)?.length;
+        return text.match(/(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/g)?.length || 0;
     }
 };
