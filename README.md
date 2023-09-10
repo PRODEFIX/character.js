@@ -1,7 +1,7 @@
 # CharacterJS
 ## Installation
 ```console
-$ npm install characterjs
+$ npm install @prodefix/characterjs
 ```
 
 ## Usage
